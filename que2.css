@@ -1,0 +1,26 @@
+/* Block */
+.paragraph {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Modifier */
+.paragraph--important {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.paragraph--featured {
+    background-color: lightblue;
+    border: 2px solid blue;
+    padding: 15px;
+}
+
+/* Element */
+.paragraph__note {
+    font-style: italic;
+    color: #888;
+}

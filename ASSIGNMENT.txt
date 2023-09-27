@@ -1,0 +1,239 @@
+				     ASSIGNMENT 
+1.)
+Sure, let's create a simple HTML page with some `div` tags and demonstrate different ways to apply CSS, including inline, internal, and external styles. We'll also see how they interact when targeting the same elements.
+
+Here's the HTML structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Example</title>
+    <!-- Internal CSS -->
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1">Box 1</div>
+    <div class="box" id="box2" style="background-color: lightblue;">Box 2 (Inline CSS)</div>
+    <div class="box" id="box3">Box 3</div>
+</body>
+</html>
+```
+
+In this example:
+
+1. We have three `div` elements with the class "box." The first and third boxes will have styles applied using internal CSS, while the second box will have an inline style.
+2. The internal CSS is defined within the `<style>` tag in the `<head>` section of the HTML document.
+3. The first and third boxes have the same class, "box," and will be styled according to the internal CSS.
+4. The second box has an inline style with a different background color.
+5. The CSS properties specified in the inline style will override any conflicting properties from the internal CSS.
+
+When you open this HTML page in a browser, you'll see three boxes displayed horizontally with different background colors:
+
+- Box 1 and Box 3 will have a yellow background due to the internal CSS.
+- Box 2 will have a light blue background because of the inline CSS, which overrides the background color property from the internal CSS.
+
+This demonstrates how inline styles take precedence over internal styles when targeting the same elements.
+
+To further illustrate external CSS, you can create a separate CSS file (e.g., "styles.css") and link it to the HTML document:
+
+```html
+<link rel="stylesheet" href="styles.css">
+```
+
+In "styles.css," you can define styles that target the same "box" class. If there are conflicting styles between the internal CSS and the external CSS, the external CSS will generally take precedence, assuming it is linked after the internal CSS in the `<head>` section.
+
+Here's an example of an external CSS file ("styles.css"):
+
+```css
+/* External CSS */
+.box {
+    background-color: lightgreen;
+    color: white;
+    font-weight: bold;
+}
+```
+
+In this case, the third box (Box 3) will have its background color overridden by the external CSS, turning it into light green. The text color will also change to white, and the font weight will become bold according to the rules defined in the external CSS file.
+
+
+2.)
+To create an HTML page with multiple paragraphs, each assigned a unique class name and styled using CSS class selectors following the BEM (Block Element Modifier) naming convention, you can follow these steps:
+
+1. **HTML Structure**: Create an HTML document with several paragraphs, each assigned a unique class name.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p class="paragraph">This is a regular paragraph.</p>
+    <p class="paragraph--important">This is an important paragraph.</p>
+    <p class="paragraph paragraph--featured">This is a featured paragraph.</p>
+    <p class="paragraph paragraph__note">This is a note paragraph.</p>
+</body>
+</html>
+
+2. **CSS Styles**: Create a CSS file (styles.css) to style the paragraphs using BEM naming conventions.
+
+```css
+/* Block */
+.paragraph {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Modifier */
+.paragraph--important {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.paragraph--featured {
+    background-color: lightblue;
+    border: 2px solid blue;
+    padding: 15px;
+}
+
+/* Element */
+.paragraph__note {
+    font-style: italic;
+    color: #888;
+}
+In this example:
+
+- The class name "paragraph" represents the block, which is a generic paragraph style.
+- The class name "paragraph--important" is a modifier that indicates an important paragraph. It changes the background color and adds bold text.
+- The class name "paragraph--featured" is another modifier for a featured paragraph. It changes the background color, border, and padding.
+- The class name "paragraph__note" is an element within the paragraph block. It styles notes differently with italic text and a different color.
+
+By using BEM naming conventions, you can clearly define the relationships between blocks, modifiers, and elements in your HTML and CSS. This makes your code more maintainable and helps avoid naming conflicts between different styles.
+
+3.)
+Sure, let's create an HTML form with various input elements and use CSS to style the form, including setting background colors for input fields. We'll also create a custom color palette for the form elements and demonstrate how to apply opacity to one of the form sections.
+
+Here's the HTML code for the form:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Contact Us</h1>
+        <form>
+            <div class="form-section">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-section">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-section">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+```
+
+Now, let's create a CSS file (styles.css) to style the form, including a custom color palette and applying opacity to one of the form sections:
+
+```css
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0.9; /* Applying opacity to the entire form container */
+}
+
+/* Form Section Styles */
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-section label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-section input[type="text"],
+.form-section input[type="email"],
+.form-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}
+
+.form-section textarea {
+    resize: vertical;
+}
+
+/* Button Style */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+```
+
+In this CSS:
+
+- We've applied a custom color palette for the form elements using various color codes (#f0f0f0, #fff, #333, #007bff, etc.).
+- The `.form-container` class styles the entire form container with a white background, border-radius, box shadow, and opacity of 0.9.
+- The `opacity` property is applied to the entire form container to make it slightly transparent.
+- Form sections have margin-bottom, labels have a bold font, and input fields have consistent styling.
+- The submit button has a blue background color that changes on hover to create a visual interaction.
+
+This example demonstrates how to style an HTML form, create a custom color palette, and apply opacity to a specific section of the form using CSS.
